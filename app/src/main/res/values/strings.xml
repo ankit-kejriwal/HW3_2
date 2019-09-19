@@ -6,4 +6,5 @@
     <string name="min_">Minimum :</string>
     <string name="avg">Average :</string>
     <string name="generate">Generate Number Async Track</string>
+    <string name="generateThread">Generate Number Thread</string>
 </resources>
