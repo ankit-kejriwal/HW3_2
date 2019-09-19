@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HW3_2</string>
+    <string name="complexity">Select Complexity :</string>
+    <string name="min">Minimum</string>
+    <string name="max">Maximum:</string>
+    <string name="min_">Minimum :</string>
+    <string name="avg">Average :</string>
+    <string name="generate">Generate Number Async Track</string>
+</resources>
