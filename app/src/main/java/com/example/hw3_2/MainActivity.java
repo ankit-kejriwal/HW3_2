@@ -58,9 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 minDisplay = message.getData().getDouble(DoWork.FINAL_MIN);
                 maxDisplay = message.getData().getDouble(DoWork.FINAL_MAX);
                 avgDisplay = message.getData().getDouble(DoWork.FINAL_AVG);
-                Log.d("demo",minDisplay+"");
-                Log.d("demo",maxDisplay+"");
-                Log.d("demo",avgDisplay+"");
+                min.setText(minDisplay+"");
+                max.setText(maxDisplay+"");
+                avg.setText(avgDisplay+"");
                 return false;
             }
         });
@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 complexityValue = minValue + (i * 1);
                 count.setText(complexityValue + " Times");
-
             }
 
             @Override
