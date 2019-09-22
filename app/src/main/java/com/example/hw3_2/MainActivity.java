@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         handler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(@NonNull Message message) {
+                progressDialog.dismiss();
                 minDisplay = message.getData().getDouble(DoWork.FINAL_MIN);
                 maxDisplay = message.getData().getDouble(DoWork.FINAL_MAX);
                 avgDisplay = message.getData().getDouble(DoWork.FINAL_AVG);
@@ -88,6 +89,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("demo", complexityValue + "");
                 arrList = HeavyWork.getArrayNumbers(complexityValue);
                 if (complexityValue > 0) {
+                    progressDialog = new ProgressDialog(MainActivity.this);
+                    progressDialog.setMax(10);
+                    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    progressDialog.setCancelable(false);
+                    progressDialog.setProgress(0);
+                    progressDialog.show();
                     threadPool.execute(new DoWork());
                 } else {
                     Toast.makeText(MainActivity.this, "Please drag seekbar", Toast.LENGTH_SHORT).show();
@@ -109,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
             double sum =0;
             for(int i=0 ;i< arrList.size();i++) {
-//                publishProgress(i);
+                progressDialog.setProgress(i);
                 sum += arrList.get(i);
             }
             double avg = sum /arrList.size();
